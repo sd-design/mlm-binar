@@ -30,4 +30,5 @@ public function level($level){
 
 $this->api->level($level);
     }
+
 }
