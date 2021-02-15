@@ -16,14 +16,17 @@ class Mlm extends CI_Controller {
     }
 	public function index()
 	{
-    $data = $this->api->getPartner(1);
-    echo $data;
+        $data['globalId'] = 1;
+        $data['partnerName'] = $this->api->getPartnerName(1);
+      $data['leftSide'] = $this->api->getPartnerLeft(1);
+      $this->load->view('partner', $data);
 	}
 
     public function partner($id){
-
-      $data = $this->api->getPartner($id);
-      echo $data;
+        $data['globalId'] = $id;
+      $data['partnerName'] = $this->api->getPartnerName($id);
+      $data['leftSide'] = $this->api->getPartnerLeft($id);
+      $this->load->view('partner', $data);
 
     }
 }
